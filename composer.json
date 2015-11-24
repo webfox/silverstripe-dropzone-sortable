@@ -1,0 +1,25 @@
+{
+  "name"       : "webfox/silverstripe-dropzone-sortable",
+  "description": "A Silverstripe extension to add drag/drop sorting to FileAttachmentField",
+  "type"       : "silverstripe-module",
+  "keywords"   : [
+    "webfox",
+    "silverstripe",
+    "dropzone",
+    "sortable"
+  ],
+  "require"    : {
+    "silverstripe/cms"    : "~3.2",
+    "unclecheese/dropzone": "1.2.*"
+  },
+  "license"    : "MIT",
+  "authors"    : [
+    {
+      "name" : "Matthew Hailwood",
+      "email": "matthew@webfox.co.nz"
+    }
+  ],
+  "extra"      : {
+    "installer-name": "dropzone-sortable"
+  }
+}

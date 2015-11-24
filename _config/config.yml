@@ -1,0 +1,7 @@
+---
+Name: dropzone-sortable
+After: 'dropzone/*'
+---
+FileAttachmentField:
+  extensions:
+    - FileAttachmentFieldSortingExtension
