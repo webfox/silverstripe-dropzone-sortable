@@ -12,7 +12,7 @@
                     var actionURL = settings['sortable-action'];
 
                     container.sortable({
-                        items      : '.dropzone-image',
+                        items      : '.dropzone-image, .dropzone-file',
                         handle     : '.file-icon',
                         cursor     : 'move',
                         opacity    : 0.5,
