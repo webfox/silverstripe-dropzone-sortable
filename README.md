@@ -1,3 +1,7 @@
+# Note: #
+> Currently waiting on a pull request merge https://github.com/unclecheese/silverstripe-dropzone/pull/34 before this is  
+> functional. Until this is merged if you would like to use this module then use the fork this pull request references.
+
 #Silverstripe Dropzone Sortable#
 This plugin allows drag/drop sorting via `FileAttachmentField` from the dropzone package.
 
