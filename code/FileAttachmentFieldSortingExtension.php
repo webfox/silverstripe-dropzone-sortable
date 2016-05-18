@@ -5,19 +5,22 @@
  *
  * @property FileAttachmentField $owner
  */
-class FileAttachmentFieldSortingExtension extends DataExtension {
+class FileAttachmentFieldSortingExtension extends DataExtension
+{
 
     private static $allowed_actions = [
         'sort'
     ];
 
-    public function setSortableColumn($name) {
+    public function setSortableColumn($name)
+    {
         $this->owner->setSetting('sort-column', $name);
 
         return $this->owner;
     }
 
-    public function getSortableColumn($default = 'SortOrder') {
+    public function getSortableColumn($default = 'SortOrder')
+    {
         return $this->owner->getSetting('sort-column') ?: $default;
     }
 
@@ -28,7 +31,8 @@ class FileAttachmentFieldSortingExtension extends DataExtension {
      *
      * @return \FileAttachmentField
      */
-    public function setSortable($val) {
+    public function setSortable($val)
+    {
         $this->owner->setSetting('sortable', $val);
         return $this->owner;
     }
@@ -36,12 +40,13 @@ class FileAttachmentFieldSortingExtension extends DataExtension {
     /**
      * Enable sorting
      */
-    public function sortable() {
+    public function sortable()
+    {
         return $this->setSortable(true);
     }
 
-    public function onBeforeRender(FileAttachmentField $field) {
-
+    public function onBeforeRender(FileAttachmentField $field)
+    {
         if ($field->getSetting('sortable') && $this->owner->isCMS()) {
             $field->setSetting('sortable-action', $field->Link('sort'));
             $field->setSetting('sort-column', $this->getSortableColumn());
@@ -52,8 +57,8 @@ class FileAttachmentFieldSortingExtension extends DataExtension {
         }
     }
 
-    public function updateAttachedFiles(&$attachedFiles) {
-
+    public function updateAttachedFiles(&$attachedFiles)
+    {
         if ($this->owner->getSetting('sortable')) {
             $attachedFiles = $attachedFiles->sort($this->getSortableColumn());
         }
@@ -64,7 +69,8 @@ class FileAttachmentFieldSortingExtension extends DataExtension {
      *
      * @param SS_HTTPRequest $request
      */
-    public function sort(SS_HTTPRequest $request) {
+    public function sort(SS_HTTPRequest $request)
+    {
         $controller = Controller::curr();
 
         //die(json_encode($request->allParams()));
@@ -148,6 +154,4 @@ class FileAttachmentFieldSortingExtension extends DataExtension {
         }
         $controller->httpError(403);
     }
-
-
 }
